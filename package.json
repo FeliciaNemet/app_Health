@@ -1,0 +1,33 @@
+{
+  "name": "tint-technical-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "install:docker": "docker run -v ${PWD}:/app -w /app node:16 yarn install",
+    "start": "next dev",
+    "start:docker": "docker compose up",
+    "lint": "next lint",
+    "lint:docker": "docker compose exec app yarn lint",
+    "migrate": "knex migrate:latest",
+    "migrate:docker": "docker compose exec app yarn migrate",
+    "reset": "knex migrate:rollback --all",
+    "reset:docker": "docker compose exec app yarn reset"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.9.1",
+    "@vanilla-extract/next-plugin": "^2.1.0",
+    "knex": "^2.3.0",
+    "next": "12.3.1",
+    "pg": "^8.8.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.7.18",
+    "@types/react": "18.0.20",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.23.1",
+    "eslint-config-next": "12.3.1",
+    "typescript": "4.8.3"
+  }
+}
